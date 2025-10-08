@@ -101,7 +101,7 @@ sudo -u nodeuser npm run monitor
 
 ### PM2 Ecosystem Config
 
-El archivo [`ecosystem.config.js`](ecosystem.config.js) contiene:
+El archivo [`ecosystem.config.cjs`](ecosystem.config.cjs) contiene:
 
 - **Autorestart**: Reinicio automático en fallos
 - **Memory limit**: 1GB máximo antes de reiniciar

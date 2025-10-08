@@ -69,6 +69,10 @@ install_dependencies() {
             yum update -y
             yum install -y curl wget git gcc-c++ make
             ;;
+        "Amazon Linux"*)
+            yum update -y
+            yum install -y curl wget git gcc-c++ make
+            ;;
         *)
             print_error "Sistema operativo no soportado: $OS"
             exit 1
@@ -89,6 +93,10 @@ install_nodejs() {
                 apt-get install -y nodejs
                 ;;
             "CentOS"*|"Red Hat"*|"Fedora"*)
+                curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+                yum install -y nodejs
+                ;;
+            "Amazon Linux"*)
                 curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
                 yum install -y nodejs
                 ;;
