@@ -15,8 +15,8 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-[hsl(var(--accent))] text-[hsl(var(--accent-foreground))] hover:bg-[hsl(var(--accent))]/90 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-[hsl(var(--accent))]/20",
-        glass: "glass text-[hsl(var(--text-primary))] hover:bg-white/20 border-[hsl(var(--glass-border))]",
+        hero: "glass bg-[hsl(var(--accent))]/20 text-[hsl(var(--text-primary))] hover:bg-[hsl(var(--accent))]/30 font-semibold tracking-wide transition-all duration-300 hover:scale-[1.02] shadow-[0_0_20px_hsl(var(--accent-glow))/0.3] hover:shadow-[0_0_40px_hsl(var(--accent-glow))/0.5]",
+        glass: "glass text-[hsl(var(--text-primary))] hover:bg-[hsl(var(--glass-bg))]/70 border-[hsl(var(--glass-border))] backdrop-blur-xl",
       },
       size: {
         default: "h-10 px-4 py-2",
