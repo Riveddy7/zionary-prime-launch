@@ -9,7 +9,18 @@
     "build:dev": "vite build --mode development",
     "build:low-memory": "node --max-old-space-size=1024 node_modules/.bin/vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop zionary-prime-launch",
+    "restart": "pm2 restart zionary-prime-launch",
+    "delete": "pm2 delete zionary-prime-launch",
+    "logs": "pm2 logs zionary-prime-launch",
+    "monit": "pm2 monit",
+    "monitor": "chmod +x scripts/auto-restart.sh && ./scripts/auto-restart.sh start",
+    "monitor:stop": "./scripts/auto-restart.sh stop",
+    "monitor:restart": "./scripts/auto-restart.sh restart",
+    "status": "pm2 status",
+    "setup:prod": "npm install && npm run build && pm2 start ecosystem.config.js --env production && npm run monitor"
   },
   "dependencies": {
     "@fluentui/react-icons": "^2.0.311",
@@ -78,6 +89,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.10",
+    "pm2": "^5.4.2",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "terser": "^5.36.0",
