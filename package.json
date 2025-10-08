@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node --max-old-space-size=2048 node_modules/.bin/vite build",
     "build:dev": "vite build --mode development",
+    "build:low-memory": "node --max-old-space-size=1024 node_modules/.bin/vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
