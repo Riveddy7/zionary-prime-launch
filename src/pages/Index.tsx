@@ -5,6 +5,7 @@ import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import CaseStudySection from "@/components/CaseStudySection";
 import ServicesSection from "@/components/ServicesSection";
+import FounderSection from "@/components/FounderSection";
 import ContactModal from "@/components/ContactModal";
 import Footer from "@/components/Footer";
 
@@ -12,13 +13,14 @@ const Index = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[hsl(var(--background-dark))]">
+    <div className="min-h-screen">
       <Header onContactClick={() => setIsContactModalOpen(true)} />
       <HeroSection onContactClick={() => setIsContactModalOpen(true)} />
       <ProblemSection />
       <SolutionSection />
       <CaseStudySection />
       <ServicesSection />
+      <FounderSection />
       <Footer />
       <ContactModal
         isOpen={isContactModalOpen}
