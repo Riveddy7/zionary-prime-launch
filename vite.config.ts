@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
-    port: 8080,
+    port: 3000,
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
@@ -58,13 +58,8 @@ export default defineConfig(({ mode }) => ({
       }
     },
     // Reducir el uso de memoria durante el build
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    }
+    minify: "esbuild", // Usar esbuild en lugar de terser para menor consumo de memoria
+    target: "es2015" // Compatible con navegadores modernos pero menos exigente
   },
   // Optimizar el uso de memoria
   optimizeDeps: {

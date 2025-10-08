@@ -1,13 +1,15 @@
-# Solución para error de JavaScript heap out of memory en VPS AWS
+# Solución para errores de build en VPS AWS
 
-## Problema
-El error `FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory` ocurre cuando el proceso de build de Vite consume más memoria de la disponible en el VPS.
+## Problemas identificados
+1. `FATAL ERROR: Reached heap limit Allocation failed - JavaScript heap out of memory`
+2. `terser not found` - Error de dependencia faltante para minificación
 
 ## Causas identificadas
 1. Memoria RAM insuficiente en el VPS (probablemente 1GB o menos)
 2. Proyecto con muchas dependencias (50+ dependencias de Radix UI)
 3. Configuración de Node.js con límite de memoria predeterminado
 4. Falta de espacio de swap configurado
+5. Terser no instalado como dependencia de desarrollo
 
 ## Soluciones implementadas
 
@@ -21,8 +23,13 @@ Se ha optimizado `vite.config.ts` con:
 - Separación de dependencias en chunks más pequeños
 - Configuración específica para entornos con memoria limitada
 - Optimización de dependencias
+- Puerto del servidor de desarrollo cambiado a 3000
+- Minificador cambiado de Terser a esbuild (menor consumo de memoria)
 
-### 3. Configurar espacio de swap
+### 3. Agregar dependencia faltante
+Se ha agregado Terser como dependencia de desarrollo en `package.json`
+
+### 4. Configurar espacio de swap
 Se ha creado el script `setup-swap.sh` para configurar 2GB de swap.
 
 ## Pasos para resolver en el VPS
@@ -35,7 +42,7 @@ Se ha creado el script `setup-swap.sh` para configurar 2GB de swap.
    ./setup-swap.sh
    ```
 
-2. **Limpiar caché de npm:**
+2. **Limpiar caché de npm e instalar dependencias:**
    ```bash
    npm cache clean --force
    rm -rf node_modules package-lock.json
@@ -105,3 +112,5 @@ Para evitar futuros problemas:
 - Las configuraciones aplicadas son específicas para entornos con recursos limitados
 - El script `setup-swap.sh` es compatible con la mayoría de distribuciones Linux de AWS
 - Si usas una instancia t2.micro o similar, la Opción 1 es altamente recomendada
+- El servidor de desarrollo ahora corre en el puerto 3000
+- Se cambió el minificador de Terser a esbuild para reducir el consumo de memoria
