@@ -1,55 +1,142 @@
+@import url('https://fonts.cdnfonts.com/css/segoe-ui-variable');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Microsoft Fluent 2 Design System for Zionary */
+/* All colors defined in HSL format for consistency */
 
 @layer base {
   :root {
-    /* Zionary Design System - Premium Minimal */
-    --background-dark: 0 0% 7%;
-    --background-light: 0 0% 96%;
+    /* Fluent 2 Color System - Dark Theme with Purple */
+    --fluent-primary: 262 83% 58%; /* #7B2CBF */
+    --fluent-primary-hover: 262 85% 48%; /* #6A1B9A */
+    --fluent-primary-light: 262 50% 15%; /* #3A0CA3 */
     
-    --text-primary: 0 0% 100%;
-    --text-secondary: 0 0% 66%;
-    --text-dark: 0 0% 9%;
+    /* Complementary Color - Turquoise */
+    --fluent-accent: 173 100% 31%; /* #00BFA5 */
+    --fluent-accent-hover: 173 100% 41%; /* #00E5CC */
+    --fluent-accent-light: 173 50% 15%; /* #08463D */
     
-    --accent: 43 74% 52%;
-    --accent-foreground: 0 0% 9%;
+    /* Neutral Colors - Dark Theme */
+    --fluent-background: 0 0% 3%; /* #080808 */
+    --fluent-surface: 0 0% 11%; /* #1C1C1C */
+    --fluent-surface-variant: 0 0% 15%; /* #252525 */
+    --fluent-text-primary: 0 0% 100%; /* #FFFFFF */
+    --fluent-text-secondary: 0 0% 85%; /* #D9D9D9 - Improved contrast */
+    --fluent-text-tertiary: 0 0% 70%; /* #B3B3B3 - Improved contrast */
     
-    --border-light: 0 0% 100% / 0.2;
-    --border-dark: 0 0% 9% / 0.1;
+    /* Semantic Colors */
+    --fluent-success: 120 85% 27%; /* #107C10 */
+    --fluent-warning: 39 100% 50%; /* #FF8C00 */
+    --fluent-error: 354 78% 51%; /* #D13438 */
     
-    /* Compatibility mappings */
-    --background: 0 0% 96%;
-    --foreground: 0 0% 9%;
+    /* Border Colors */
+    --fluent-border-light: 0 0% 100% / 0.1;
+    --fluent-border-default: 0 0% 100% / 0.15;
+    --fluent-border-strong: 0 0% 100% / 0.25;
     
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    /* Acrylic Effects */
+    --fluent-acrylic-bg: rgba(45, 45, 45, 0.8);
+    --fluent-acrylic-border: rgba(123, 44, 191, 0.2);
     
-    --primary: 43 74% 52%;
-    --primary-foreground: 0 0% 9%;
+    /* Shadow System */
+    --fluent-shadow-2: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --fluent-shadow-4: 0 2px 8px rgba(0, 0, 0, 0.12);
+    --fluent-shadow-8: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --fluent-shadow-16: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --fluent-shadow-28: 0 14px 56px rgba(0, 0, 0, 0.12);
+    --fluent-shadow-64: 0 32px 128px rgba(0, 0, 0, 0.12);
     
-    --secondary: 0 0% 7%;
-    --secondary-foreground: 0 0% 100%;
+    /* Spacing System (4px base unit) */
+    --fluent-space-1: 4px;
+    --fluent-space-2: 8px;
+    --fluent-space-3: 12px;
+    --fluent-space-4: 16px;
+    --fluent-space-5: 20px;
+    --fluent-space-6: 24px;
+    --fluent-space-8: 32px;
+    --fluent-space-10: 40px;
+    --fluent-space-12: 48px;
+    --fluent-space-16: 64px;
+    --fluent-space-20: 80px;
+    --fluent-space-24: 96px;
+    --fluent-space-28: 112px;
+    --fluent-space-32: 128px;
     
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 66%;
+    /* Border Radius */
+    --fluent-radius-small: 4px;
+    --fluent-radius-medium: 8px;
+    --fluent-radius-large: 12px;
+    --fluent-radius-xl: 16px;
     
-    --destructive: 0 84.2% 60.2%;
+    /* Breakpoints */
+    --fluent-breakpoint-xs: 0px;
+    --fluent-breakpoint-sm: 320px;
+    --fluent-breakpoint-md: 768px;
+    --fluent-breakpoint-lg: 1024px;
+    --fluent-breakpoint-xl: 1440px;
+    --fluent-breakpoint-2xl: 1920px;
+    
+    /* Compatibility mappings for existing components */
+    --background: var(--fluent-background);
+    --foreground: var(--fluent-text-primary);
+    --card: var(--fluent-surface);
+    --card-foreground: var(--fluent-text-primary);
+    --primary: var(--fluent-primary);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--fluent-surface-variant);
+    --secondary-foreground: var(--fluent-text-primary);
+    --muted: var(--fluent-surface-variant);
+    --muted-foreground: var(--fluent-text-secondary);
+    --accent: var(--fluent-accent);
+    --accent-foreground: 0 0% 100%;
+    --destructive: var(--fluent-error);
     --destructive-foreground: 0 0% 100%;
+    --border: var(--fluent-border-default);
+    --input: var(--fluent-border-default);
+    --ring: var(--fluent-primary);
+    --radius: var(--fluent-radius-medium);
     
-    --border: 0 0% 9% / 0.1;
-    --input: 0 0% 9% / 0.1;
-    --ring: 43 74% 52%;
+    /* Legacy mappings for smooth transition */
+    --background-dark: 0 0% 3%;
+    --background-light: var(--fluent-background);
+    --text-primary: var(--fluent-text-primary);
+    --text-secondary: var(--fluent-text-secondary);
+    --text-dark: var(--fluent-text-primary);
+  }
+  
+  /* Light Theme (fallback) */
+  .light {
+    /* Fluent 2 Color System - Light Theme */
+    --fluent-primary: 262 83% 58%; /* #7B2CBF */
+    --fluent-primary-hover: 262 85% 48%; /* #6A1B9A */
+    --fluent-primary-light: 262 50% 95%; /* #F3E5FF */
     
-    --radius: 0.5rem;
+    /* Neutral Colors - Light Theme */
+    --fluent-background: 0 0% 98%; /* #FAFAFA */
+    --fluent-surface: 0 0% 100%; /* #FFFFFF */
+    --fluent-surface-variant: 0 0% 96%; /* #F5F5F5 */
+    --fluent-text-primary: 0 0% 20%; /* #323130 */
+    --fluent-text-secondary: 0 0% 37%; /* #605E5C */
+    --fluent-text-tertiary: 0 0% 63%; /* #A19F9D */
     
-    /* Glass effect variables */
-    --glass-bg: 0 0% 100% / 0.1;
-    --glass-border: 0 0% 100% / 0.2;
+    /* Acrylic Effects */
+    --fluent-acrylic-bg: rgba(255, 255, 255, 0.7);
+    --fluent-acrylic-border: rgba(0, 0, 0, 0.1);
+    
+    /* Update compatibility mappings */
+    --background: var(--fluent-background);
+    --foreground: var(--fluent-text-primary);
+    --card: var(--fluent-surface);
+    --card-foreground: var(--fluent-text-primary);
+    --secondary: var(--fluent-surface-variant);
+    --secondary-foreground: var(--fluent-text-primary);
+    --muted: var(--fluent-surface-variant);
+    --muted-foreground: var(--fluent-text-secondary);
+    --border: var(--fluent-border-default);
+    --input: var(--fluent-border-default);
   }
 }
 
@@ -59,24 +146,268 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Segoe UI Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-feature-settings: 'liga', 'calt';
+    font-variation-settings: 'wght' 400;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+  /* Fluent 2 Typography Scale */
+  h1, .fluent-hero-title {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: clamp(3rem, 10vw, 5.25rem);
+    font-weight: 700;
+    font-variation-settings: 'wght' 700;
+    letter-spacing: -0.02em;
+  }
+  
+  h2, .fluent-section-title {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    line-height: clamp(2.125rem, 5vw, 3.375rem);
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+    letter-spacing: -0.01em;
+  }
+  
+  h3, .fluent-card-title {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    line-height: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+  }
+  
+  h4 {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    line-height: clamp(1.375rem, 3vw, 1.5rem);
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+  }
+  
+  .fluent-body-large {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    line-height: clamp(1.375rem, 3vw, 1.75rem);
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+  }
+  
+  .fluent-body-text, body {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: clamp(1.5rem, 3vw, 1.6875rem);
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+  }
+  
+  .fluent-caption {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+  }
+  
+  .fluent-metadata {
+    font-family: 'Segoe UI Variable', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 400;
+    font-variation-settings: 'wght' 400;
+  }
+}
+
+@layer components {
+  /* Fluent 2 Button Components */
+  .fluent-button-primary {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    background: hsl(var(--fluent-primary));
+    color: white;
+    border-radius: var(--fluent-radius-small);
+    padding: var(--fluent-space-3) var(--fluent-space-6);
+    font-weight: 600;
+    transition: all 150ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+  
+  .fluent-button-primary:hover {
+    background: hsl(var(--fluent-primary-hover));
+    transform: translateY(-1px);
+    box-shadow: var(--fluent-shadow-4);
+  }
+  
+  .fluent-button-primary:active {
+    transform: translateY(0);
+    transition-duration: 50ms;
+  }
+  
+  .fluent-button-secondary {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+    background: transparent;
+    color: hsl(var(--fluent-primary));
+    border: 1px solid hsl(var(--fluent-primary));
+    border-radius: var(--fluent-radius-small);
+    padding: calc(var(--fluent-space-3) - 1px) calc(var(--fluent-space-6) - 1px);
+    font-weight: 600;
+    transition: all 150ms cubic-bezier(0.1, 0.9, 0.2, 1);
+  }
+  
+  .fluent-button-secondary:hover {
+    background: hsl(var(--fluent-primary-light));
+    transform: translateY(-1px);
+    box-shadow: var(--fluent-shadow-2);
+  }
+  
+  /* Fluent 2 Card Components */
+  .fluent-card {
+    background: hsl(var(--fluent-surface));
+    border-radius: var(--fluent-radius-medium);
+    box-shadow: var(--fluent-shadow-4);
+    transition: all 300ms cubic-bezier(0.1, 0.9, 0.2, 1);
+    border: 1px solid hsl(var(--fluent-border-default));
+  }
+  
+  .fluent-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--fluent-shadow-8);
+  }
+  
+  .fluent-card-acrylic {
+    background: var(--fluent-acrylic-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--fluent-acrylic-border);
+    border-radius: var(--fluent-radius-medium);
+  }
+  
+  /* Fluent 2 Container */
+  .fluent-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--fluent-space-4);
+    padding-right: var(--fluent-space-4);
+  }
+  
+  @media (min-width: 320px) {
+    .fluent-container {
+      max-width: 100%;
+      padding-left: var(--fluent-space-4);
+      padding-right: var(--fluent-space-4);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .fluent-container {
+      max-width: 736px;
+      padding-left: var(--fluent-space-6);
+      padding-right: var(--fluent-space-6);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .fluent-container {
+      max-width: 992px;
+      padding-left: var(--fluent-space-8);
+      padding-right: var(--fluent-space-8);
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .fluent-container {
+      max-width: 1392px;
+      padding-left: var(--fluent-space-12);
+      padding-right: var(--fluent-space-12);
+    }
   }
 }
 
 @layer utilities {
+  /* Glass effect with Fluent 2 */
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    background: var(--fluent-acrylic-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--fluent-acrylic-border);
   }
   
+  /* Section spacing */
   .section-padding {
-    @apply py-20 md:py-32;
+    padding: var(--fluent-space-20) 0;
   }
   
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: var(--fluent-space-32) 0;
+    }
+  }
+  
+  /* Shadow utilities */
+  .fluent-shadow-2 { box-shadow: var(--fluent-shadow-2); }
+  .fluent-shadow-4 { box-shadow: var(--fluent-shadow-4); }
+  .fluent-shadow-8 { box-shadow: var(--fluent-shadow-8); }
+  .fluent-shadow-16 { box-shadow: var(--fluent-shadow-16); }
+  .fluent-shadow-28 { box-shadow: var(--fluent-shadow-28); }
+  .fluent-shadow-64 { box-shadow: var(--fluent-shadow-64); }
+  
+  /* Spacing utilities */
+  .fluent-space-1 { margin: var(--fluent-space-1); }
+  .fluent-space-2 { margin: var(--fluent-space-2); }
+  .fluent-space-3 { margin: var(--fluent-space-3); }
+  .fluent-space-4 { margin: var(--fluent-space-4); }
+  .fluent-space-5 { margin: var(--fluent-space-5); }
+  .fluent-space-6 { margin: var(--fluent-space-6); }
+  .fluent-space-8 { margin: var(--fluent-space-8); }
+  .fluent-space-10 { margin: var(--fluent-space-10); }
+  .fluent-space-12 { margin: var(--fluent-space-12); }
+  .fluent-space-16 { margin: var(--fluent-space-16); }
+  .fluent-space-20 { margin: var(--fluent-space-20); }
+  .fluent-space-24 { margin: var(--fluent-space-24); }
+  
+  /* Border radius utilities */
+  .fluent-radius-small { border-radius: var(--fluent-radius-small); }
+  .fluent-radius-medium { border-radius: var(--fluent-radius-medium); }
+  .fluent-radius-large { border-radius: var(--fluent-radius-large); }
+  .fluent-radius-xl { border-radius: var(--fluent-radius-xl); }
+  
+  /* Text color utilities */
+  .fluent-text-primary { color: hsl(var(--fluent-text-primary)); }
+  .fluent-text-secondary { color: hsl(var(--fluent-text-secondary)); }
+  .fluent-text-tertiary { color: hsl(var(--fluent-text-tertiary)); }
+  
+  /* Background utilities */
+  .fluent-bg-surface { background: hsl(var(--fluent-surface)); }
+  .fluent-bg-surface-variant { background: hsl(var(--fluent-surface-variant)); }
+  
+  /* Accessibility utilities */
+  .fluent-focus-visible {
+    outline: 2px solid hsl(var(--fluent-primary));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  /* Animation utilities */
+  .fluent-motion-respectful {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  /* Legacy utilities for smooth transition */
   .container-custom {
     @apply max-w-7xl mx-auto px-6 md:px-12;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

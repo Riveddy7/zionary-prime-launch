@@ -61,11 +61,11 @@ const Footer = () => {
             </h4>
             <div className="space-y-3">
               <a
-                href="mailto:contacto@zionary.com"
+                href="mailto:eduardo@zionary.com"
                 className="flex items-center gap-2 text-[hsl(var(--text-secondary))] hover:text-[hsl(var(--accent))] transition-colors font-light"
               >
                 <PiEnvelope className="w-5 h-5" />
-                contacto@zionary.com
+                eduardo@zionary.com
               </a>
               <a
                 href="https://linkedin.com/company/zionary"
