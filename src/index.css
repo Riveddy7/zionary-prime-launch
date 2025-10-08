@@ -8,57 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Zionary Design System - Premium Glass */
-    --background-dark: 262 30% 34%;
-    --background-light: 60 82% 94%;
+    /* Zionary Design System - Premium Minimal */
+    --background-dark: 0 0% 7%;
+    --background-light: 0 0% 96%;
     
-    --text-primary: 60 82% 94%;
-    --text-secondary: 203 38% 66%;
-    --text-dark: 262 30% 20%;
+    --text-primary: 0 0% 100%;
+    --text-secondary: 0 0% 66%;
+    --text-dark: 0 0% 9%;
     
-    --accent: 262 25% 54%;
-    --accent-glow: 262 25% 54%;
-    --accent-foreground: 60 82% 94%;
+    --accent: 43 74% 52%;
+    --accent-foreground: 0 0% 9%;
     
-    --secondary: 203 38% 66%;
-    --secondary-foreground: 262 30% 20%;
-    
-    --tertiary: 186 33% 82%;
-    --tertiary-foreground: 262 30% 34%;
-    
-    --border-light: 60 82% 94% / 0.15;
-    --border-dark: 262 30% 20% / 0.1;
+    --border-light: 0 0% 100% / 0.2;
+    --border-dark: 0 0% 9% / 0.1;
     
     /* Compatibility mappings */
-    --background: 262 30% 34%;
-    --foreground: 60 82% 94%;
+    --background: 0 0% 96%;
+    --foreground: 0 0% 9%;
     
-    --card: 262 25% 54% / 0.1;
-    --card-foreground: 60 82% 94%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
     
-    --primary: 262 25% 54%;
-    --primary-foreground: 60 82% 94%;
+    --primary: 43 74% 52%;
+    --primary-foreground: 0 0% 9%;
     
-    --muted: 262 30% 34% / 0.5;
-    --muted-foreground: 203 38% 66%;
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 66%;
     
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 60 82% 94%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 262 25% 54% / 0.2;
-    --input: 262 25% 54% / 0.15;
-    --ring: 262 25% 54%;
+    --border: 0 0% 9% / 0.1;
+    --input: 0 0% 9% / 0.1;
+    --ring: 43 74% 52%;
     
-    --radius: 1rem;
+    --radius: 0.5rem;
     
-    /* Premium Glass effect variables */
-    --glass-bg: 262 25% 54% / 0.08;
-    --glass-border: 262 25% 54% / 0.18;
-    --glass-glow: 262 25% 54% / 0.4;
-    
-    /* Neon glow effects */
-    --neon-glow: 0 0 20px hsl(262 25% 54% / 0.5), 0 0 40px hsl(262 25% 54% / 0.3);
-    --neon-glow-strong: 0 0 30px hsl(262 25% 54% / 0.8), 0 0 60px hsl(262 25% 54% / 0.4), 0 0 90px hsl(262 25% 54% / 0.2);
+    /* Glass effect variables */
+    --glass-bg: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
   }
 }
 
@@ -78,19 +69,7 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glass {
-    @apply bg-[hsl(var(--glass-bg))] backdrop-blur-xl border border-[hsl(var(--glass-border))] shadow-[0_8px_32px_0_rgba(129,116,156,0.15)];
-  }
-  
-  .glass-card {
-    @apply glass rounded-2xl p-8 hover:bg-[hsl(var(--glass-bg))]/50 transition-all duration-300 hover:shadow-[0_8px_32px_0_rgba(129,116,156,0.25)];
-  }
-  
-  .neon-glow {
-    text-shadow: var(--neon-glow);
-  }
-  
-  .neon-glow-strong {
-    text-shadow: var(--neon-glow-strong);
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
   }
   
   .section-padding {
