@@ -8,48 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Zionary Design System - Premium Minimal */
-    --background-dark: 0 0% 7%;
-    --background-light: 0 0% 96%;
+    /* Zionary Design System - Tech Glass */
+    --color-1: 268 50% 7%;      /* Deep purple-black */
+    --color-2: 240 24% 24%;     /* Dark blue-purple */
+    --color-3: 203 6% 42%;      /* Cool gray */
+    --color-4: 42 25% 66%;      /* Warm beige */
+    --color-5: 45 66% 74%;      /* Gold accent */
+    
+    --background-dark: var(--color-1);
+    --background-light: var(--color-2);
     
     --text-primary: 0 0% 100%;
-    --text-secondary: 0 0% 66%;
-    --text-dark: 0 0% 9%;
+    --text-secondary: var(--color-3);
+    --text-dark: var(--color-1);
     
-    --accent: 43 74% 52%;
-    --accent-foreground: 0 0% 9%;
+    --accent: var(--color-5);
+    --accent-foreground: var(--color-1);
     
-    --border-light: 0 0% 100% / 0.2;
-    --border-dark: 0 0% 9% / 0.1;
+    --border-light: 0 0% 100% / 0.15;
+    --border-dark: var(--color-2);
     
     /* Compatibility mappings */
-    --background: 0 0% 96%;
-    --foreground: 0 0% 9%;
+    --background: var(--color-1);
+    --foreground: 0 0% 100%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card: var(--color-2);
+    --card-foreground: 0 0% 100%;
     
-    --primary: 43 74% 52%;
-    --primary-foreground: 0 0% 9%;
+    --primary: var(--color-5);
+    --primary-foreground: var(--color-1);
     
-    --secondary: 0 0% 7%;
+    --secondary: var(--color-2);
     --secondary-foreground: 0 0% 100%;
     
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 66%;
+    --muted: var(--color-2);
+    --muted-foreground: var(--color-3);
     
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 0 0% 9% / 0.1;
-    --input: 0 0% 9% / 0.1;
-    --ring: 43 74% 52%;
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.1;
+    --ring: var(--color-5);
     
-    --radius: 0.5rem;
+    --radius: 1rem;
     
-    /* Glass effect variables */
-    --glass-bg: 0 0% 100% / 0.1;
-    --glass-border: 0 0% 100% / 0.2;
+    /* Premium Glass System - Apple Style */
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-bg-strong: 0 0% 100% / 0.08;
+    --glass-border: 0 0% 100% / 0.15;
+    --glass-shadow: 0 0% 0% / 0.5;
+    
+    /* Glow effects */
+    --glow-primary: var(--color-5);
+    --glow-secondary: var(--color-4);
   }
 }
 
@@ -68,8 +80,40 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Apple-style Glass Morphism */
   .glass {
-    @apply bg-white/10 backdrop-blur-md border border-white/20;
+    @apply bg-white/5 backdrop-blur-2xl border border-white/15;
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.37),
+      inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl p-8;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+  }
+  
+  .glass-strong {
+    @apply backdrop-blur-3xl border border-white/20;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 8px 32px 0 rgba(0, 0, 0, 0.5),
+      inset 0 1px 2px 0 rgba(255, 255, 255, 0.15);
+  }
+  
+  /* Neon Glow Effects */
+  .glow-gold {
+    text-shadow: 0 0 20px hsl(var(--color-5) / 0.5),
+                 0 0 40px hsl(var(--color-5) / 0.3);
+  }
+  
+  .glow-border {
+    box-shadow: 0 0 20px hsl(var(--color-5) / 0.3),
+                inset 0 0 20px hsl(var(--color-5) / 0.1);
   }
   
   .section-padding {
